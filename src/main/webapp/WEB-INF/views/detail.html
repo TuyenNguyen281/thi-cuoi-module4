@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết thành phố</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h2>City: <span th:text="${city.nameCity}"></span></h2>
+<div>
+    <center>
+        <h2>
+            <a href="/createCity">Add New City</a>
+        </h2>
+    </center>
+</div>
+<div>
+
+    <p>Name: <span th:text="${city.nameCity}"></span></p>
+    <p>Acreage: <span th:text="${city.acreage}"></span> <span>(Km<sup>2</sup>)</span></p>
+    <p>Population: <span th:text="${city.population}"></span><span>(million people)</span></p>
+    <p>GDP: <span th:text="${city.gdp}"></span><span>(million dong)</span></p>
+    <p>Description: <span th:text="${city.description}"></span></p>
+</div>
+<div>
+    <a th:href="@{/editCity/__${city.id}__}"><input class="btn btn-success" size="5px"
+                                                    value="Edit"/></a>
+    <a th:href="@{/deleteCity/__${city.id}__}"><input class="btn btn-success" size="5px"
+                                                      value="Delete"/></a>
+
+    <a href="/city"><input class="btn btn-success" size="10px" value="Back"/></a>
+</div>
+
+
+</body>
+</html>
